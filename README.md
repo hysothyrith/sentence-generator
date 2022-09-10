@@ -6,16 +6,34 @@ A utility for generating Khmer sentences that can be used for training machine l
 
 ```python
 # -*- coding: utf-8 -*-
-from dictionary.objects import toilet
-from dictionary.questions import where
 from utils.generation import materialize
 
-intent = "FindToilet"
+where = [
+    "ទីណា",
+    "កន្លែងណា",
+]
 
+bathroom = [
+    "បង្គន់",
+    "បន្ទប់ទឹក",
+]
 
-def sentences():
-    return materialize(
-        (toilet, "នៅ", where, "?"),
-        (where, "ទៅ", toilet, "?"),
+print(
+    materialize(
+        ("តើ", bathroom, "នៅ", where, "?"),
+        (where, "ទៅ", bathroom, "?"),
     )
+)
+
+# Output:
+# [
+#     ["តើបង្គន់នៅទីណា?"],
+#     ["តើបង្គន់នៅកន្លែងណា?"],
+#     ["តើបន្ទប់ទឹកនៅទីណា?"],
+#     ["តើបន្ទប់ទឹកនៅកន្លែងណា?"],
+#     ["ទីណាទៅបង្គន់?"],
+#     ["ទីណាទៅបន្ទប់ទឹក?"],
+#     ["កន្លែងណាទៅបង្គន់?"],
+#     ["កន្លែងណាទៅបន្ទប់ទឹក?"],
+# ]
 ```
