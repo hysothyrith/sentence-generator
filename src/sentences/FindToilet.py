@@ -3,8 +3,6 @@ from dictionary.objects import toilet
 from dictionary.questions import where
 from utils.generation import materialize
 
-intent = "FindToilet"
-
 
 def sentences():
     return materialize(

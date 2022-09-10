@@ -4,7 +4,6 @@ from dictionary.objects import toilet
 from dictionary.questions import yes_or_no
 from utils.generation import materialize
 
-intent = "DoesToiletExist"
 
 subject = [
     "នឹង",

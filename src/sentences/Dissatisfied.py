@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-intent = "Dissatisfied"
-
 
 def sentences():
     return [

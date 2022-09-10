@@ -23,9 +23,9 @@ fingerprints = load()
 
 
 def changed(module) -> bool:
-    hash = hashlib.md5(str(module.sentences()).encode("utf-8")).hexdigest()
-    if fingerprints.get(module.intent) == hash:
+    hash = hashlib.md5(str(module["sentences"]).encode("utf-8")).hexdigest()
+    if fingerprints.get(module["intent"]) == hash:
         return False
 
-    fingerprints[module.intent] = hash
+    fingerprints[module["intent"]] = hash
     return True
