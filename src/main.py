@@ -1,4 +1,6 @@
 import csv
+import os
+
 import fingerprints
 
 from sentences import (
@@ -21,6 +23,9 @@ modules = [
 
 
 def write_module(module):
+    if not os.path.exists("storage/sentences"):
+        os.makedirs("storage/sentences")
+
     file_path = "storage/sentences/{}.csv".format(module.intent)
     with open(file_path, "w", encoding="UTF8") as file:
         writer = csv.writer(file)
