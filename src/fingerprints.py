@@ -1,5 +1,6 @@
-import pickle
 import hashlib
+import os
+import pickle
 
 
 def load() -> dict:
@@ -11,6 +12,9 @@ def load() -> dict:
 
 
 def save():
+    if not os.path.exists("storage/sentences"):
+        os.makedirs("storage/sentences")
+
     with open("storage/fingerprints.pickle", "wb") as file:
         pickle.dump(fingerprints, file)
 
